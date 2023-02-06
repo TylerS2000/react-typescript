@@ -1,22 +1,20 @@
+import Part from "./Part"
+import { CoursePart } from "../customTypings"
 
-
-interface courses{
-    name:string,
-    exerciseCount:number    
-}
 interface courseParts{
-    courseParts:Array<courses>
+    courseParts:Array<CoursePart>
 }
+
 export default function Courses(props:courseParts){
-        const course = props.courseParts.map((course)=>{
-            return <p>
-                {course.name}:{course.exerciseCount}
-            </p>
-        }
-        )
+   
+         
+            
         return(
             <div>
-                {course}
+                {props.courseParts.map((part)=>{
+                    return<Part course={part}/>
+                }
+                )}
             </div>
         )
 }
